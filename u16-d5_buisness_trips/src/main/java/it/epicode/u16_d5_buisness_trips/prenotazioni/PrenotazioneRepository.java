@@ -2,5 +2,5 @@ package it.epicode.u16_d5_buisness_trips.prenotazioni;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PrenorazioneRepository extends JpaRepository<Prenotazione, Long> {
+public interface PrenotazioneRepository extends JpaRepository<Prenotazione, Long> {
 }

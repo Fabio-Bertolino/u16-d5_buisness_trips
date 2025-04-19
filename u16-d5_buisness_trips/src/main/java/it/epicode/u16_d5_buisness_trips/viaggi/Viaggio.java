@@ -1,5 +1,6 @@
 package it.epicode.u16_d5_buisness_trips.viaggi;
 
+import it.epicode.u16_d5_buisness_trips.dipendenti.Dipendente;
 import it.epicode.u16_d5_buisness_trips.enums.Stato;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,5 +23,7 @@ public class Viaggio {
     @Column(nullable = false, name = "data_partenza")
     private LocalDate dataPartenza;
     @Column(nullable = false)
-    private Stato stato;
+    private Stato stato = Stato.IN_PROGRAMMA;
+    @ManyToOne
+    private Dipendente dipendente;
 }

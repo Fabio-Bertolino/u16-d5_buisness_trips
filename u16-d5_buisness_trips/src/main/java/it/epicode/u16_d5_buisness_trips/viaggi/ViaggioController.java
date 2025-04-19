@@ -3,6 +3,7 @@ package it.epicode.u16_d5_buisness_trips.viaggi;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import it.epicode.u16_d5_buisness_trips.dipendenti.Dipendente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,13 @@ public class ViaggioController {
     @ResponseStatus(HttpStatus.CREATED)
     public Viaggio createViaggio(@RequestBody Viaggio viaggio) throws Exception {
         return viaggioService.save(viaggio);
+    }
+
+    @GetMapping("")
+    public Page<Viaggio> getViaggi(@RequestParam(defaultValue = "0") int page,
+                                          @RequestParam(defaultValue = "10") int size,
+                                          @RequestParam(defaultValue = "id") String sortBy) {
+        return viaggioService.getViaggi(page, size, sortBy);
     }
 
     @GetMapping("/{viaggioId}")
